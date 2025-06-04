@@ -15,7 +15,7 @@ export default function Cards() {
         <CardHeader>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>
-          <CardAction>Card Action</CardAction>
+          <CardAction>Copy to Clipboard</CardAction>
         </CardHeader>
         <CardContent>
           <p>Card Content</p>
