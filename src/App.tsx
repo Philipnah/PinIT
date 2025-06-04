@@ -1,42 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Chat from "./components/Chat";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img 
-            src={viteLogo} 
-            alt="Vite logo" 
-          />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img 
-            src={reactLogo} 
-            alt="React logo" 
-          />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div>
-        <button 
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="flex flex-col items-center justify-center h-screen gap-4">
+      <h1 className="text-4xl font-bold">Welcome to PinIT</h1>
+      <h2 className="text-lg px-4 text-center">
+        Pin any ITU related news to this page to share it among the wonderful
+        students of ITU! 🥳
+      </h2>
+      <Chat />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
