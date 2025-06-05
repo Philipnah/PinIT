@@ -57,10 +57,10 @@ export default function Cards() {
 
   return (
     <div className="w-full">
-      {pins.map((pin, index) => {
+      {pins.map((pin) => {
         return (
           <Card
-            key={index}
+            key={pin.id}
             className="w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
           >
             <CardHeader>
