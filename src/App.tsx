@@ -1,9 +1,10 @@
 import Chat from "./components/Chat";
+import Title from "./components/Title";
 
 function App() {
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-4">
-      <h1 className="text-4xl font-bold">Welcome to PinIT</h1>
+      <Title text="Welcome to PinIT📌" />
       <h2 className="text-lg px-4 text-center">
         Pin any ITU related news to this page to share it among the wonderful
         students of ITU! 🥳
