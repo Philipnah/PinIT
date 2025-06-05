@@ -1,4 +1,4 @@
-import Cards from "./Cards";
+import Cards from "./Pins";
 import InputField from "./InputField";
 
 export default function Chat() {
