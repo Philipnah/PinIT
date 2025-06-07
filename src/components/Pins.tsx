@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { useEffect, useState } from "react";
+import SpinnerCircle3 from "./Spinner";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -55,16 +56,20 @@ export default function Cards() {
     return ISOString.split(".")[0].replace("T", " ");
   }
 
+  if (pins.length == 0) {
+    return <SpinnerCircle3 />;
+  }
+
   return (
     <div className="w-full">
       {pins.map((pin) => {
         return (
           <Card
             key={pin.id}
-            className="w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+            className="w-xs sm:w-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
           >
             <CardHeader>
-              <CardTitle>{pin.title}</CardTitle>
+              <CardTitle>{pin.title} Veryyyy long title right here!</CardTitle>
               <CardDescription>
                 {pin.author}
                 <br />
@@ -73,7 +78,10 @@ export default function Cards() {
               <CardAction>Copy to Clipboard</CardAction>
             </CardHeader>
             <CardContent>
-              <p>{pin.content}</p>
+              <p>
+                {pin.content} This content is super long and very long so long
+                omg
+              </p>
             </CardContent>
             <CardFooter>
               <p>Card Footer</p>
