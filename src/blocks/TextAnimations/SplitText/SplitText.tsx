@@ -101,7 +101,7 @@ const SplitText: React.FC<SplitTextProps> = ({
 
     return () => {
       tl.kill();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill()); // This kills all animations from gsap i believe
       gsap.killTweensOf(targets);
       splitter.revert();
     };
