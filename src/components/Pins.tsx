@@ -42,8 +42,8 @@ export default function Cards() {
 
   return (
     <div className="w-full">
-      {pins.map((pin, key) => {
-        return <AnimatedPin pin={pin} key={key} />;
+      {pins.map((pin) => {
+        return <AnimatedPin pin={pin} key={pin.id} />;
       })}
     </div>
   );
