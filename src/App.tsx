@@ -1,4 +1,5 @@
-import { createClient, type Session } from "@supabase/supabase-js";
+import { type Session } from "@supabase/supabase-js";
+import supabase from "./utils/supabase";
 import Chat from "./components/Chat";
 import Title from "./components/Title";
 import { Analytics } from "@vercel/analytics/react";
@@ -6,11 +7,6 @@ import { useEffect, useState } from "react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import SignOutButton from "./components/SignOutButton";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
 
 function App() {
   const [session, setSession] = useState<Session | null>(null);
