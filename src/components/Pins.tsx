@@ -13,7 +13,7 @@ export default function Cards() {
   async function getPins() {
     const { data, error } = await supabase.from("pins").select();
     if (error) {
-      console.log(error);
+      console.error(error);
     }
 
     if (data != null) {

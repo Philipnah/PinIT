@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 async function signOut() {
   const { error } = await supabase.auth.signOut();
   if (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
