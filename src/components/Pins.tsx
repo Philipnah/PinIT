@@ -1,12 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
+import supabase from "@/utils/supabase";
 import { useEffect, useState } from "react";
 import SpinnerCircle3 from "./Spinner";
 import AnimatedPin from "./AnimatedPin";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
 
 export default function Cards() {
   const [pins, setPins] = useState<Pin[]>([]);
@@ -18,7 +13,7 @@ export default function Cards() {
   async function getPins() {
     const { data, error } = await supabase.from("pins").select();
     if (error) {
-      console.log(error);
+      console.error(error);
     }
 
     if (data != null) {
