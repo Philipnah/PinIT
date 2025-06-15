@@ -9,5 +9,12 @@ async function signOut() {
 }
 
 export default function SignOutButton() {
-  return <Button onClick={signOut}>Sign Out</Button>;
+  return (
+    <Button
+      className="bg-transparent text-black border hover:border-transparent hover:text-white transition-all duration-200 hover:shadow-lg"
+      onClick={signOut}
+    >
+      Sign Out 👋
+    </Button>
+  );
 }

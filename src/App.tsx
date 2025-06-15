@@ -48,7 +48,9 @@ function App() {
         />
       ) : (
         <>
-          <SignOutButton />
+          <div className="absolute top-4 right-4">
+            <SignOutButton />
+          </div>
           <Title text="Welcome to PinIT📌" />
           <h2 className="text-lg px-4 text-center">
             Pin any ITU related news to this page to share it among the
