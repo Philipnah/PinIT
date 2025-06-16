@@ -32,7 +32,7 @@ export default function AnimatedPin({ pin }: { pin: Pin }) {
         className="w-xs sm:w-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
       >
         <CardHeader>
-          <CardTitle>{pin.title} Veryyyy long title right here!</CardTitle>
+          <CardTitle>{pin.title}</CardTitle>
           <CardDescription>
             {pin.author}
             <br />
@@ -41,9 +41,7 @@ export default function AnimatedPin({ pin }: { pin: Pin }) {
           <CardAction>Copy to Clipboard</CardAction>
         </CardHeader>
         <CardContent>
-          <p>
-            {pin.content} This content is super long and very long so long omg
-          </p>
+          <p>{pin.content}</p>
         </CardContent>
         <CardFooter>
           <p>Card Footer</p>

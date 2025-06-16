@@ -10,16 +10,28 @@ export default function InputField() {
     event.preventDefault();
     if (inputField == "") return;
 
-    handlePinButtonClick(inputField);
+    publishPin(inputField);
     setInputField("");
   }
 
-  async function handlePinButtonClick(text: string) {
+  async function publishPin(text: string) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
 
-    console.log(user?.email + " wanted to pin: " + text);
+    const userEmail: string = user?.email ? user?.email : "Email is undefined";
+
+    console.log(userEmail + " wanted to pin: " + text);
+
+    const pinToInsert = {
+      author: userEmail,
+      title: "Title not implemented",
+      content: text,
+    };
+
+    const { error } = await supabase.from("pins").insert(pinToInsert);
+
+    if (error != null) console.error(error);
   }
 
   return (

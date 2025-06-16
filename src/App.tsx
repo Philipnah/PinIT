@@ -39,6 +39,7 @@ function App() {
               sign_up: {
                 email_label: "You must sign up using your ITU email address",
               },
+              sign_in: { email_label: "Your ITU email address" },
             },
           }}
         />
