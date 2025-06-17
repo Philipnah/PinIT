@@ -44,13 +44,13 @@ function App() {
         />
       ) : (
         <>
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 right-4 font-fancy">
             <SignOutButton />
           </div>
           <Title text="Welcome to PinIT📌" />
-          <h2 className="text-lg px-4 text-center">
+          <h2 className="text-lg px-4 text-center font-fancy italic">
             Pin any ITU related news to this page to share it among the
-            wonderful students of ITU! 🥳
+            wonderful students of ITU! <span className="not-italic">🥳</span>
           </h2>
           <Chat />
         </>

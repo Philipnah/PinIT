@@ -29,7 +29,7 @@ export default function AnimatedPin({ pin }: { pin: Pin }) {
     >
       <Card
         key={pin.id}
-        className="w-xs sm:w-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+        className="w-xs sm:w-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 font-fancy"
       >
         <CardHeader>
           <CardTitle>{pin.title} Veryyyy long title right here!</CardTitle>

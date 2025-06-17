@@ -8,7 +8,7 @@ export default function Title({ text }: { text: string }) {
   return (
     <SplitText
       text={text}
-      className="text-2xl font-semibold text-center"
+      className="text-2xl font-semibold text-center font-fancy"
       delay={10}
       duration={2}
       ease="elastic.out(1, 0.3)"
