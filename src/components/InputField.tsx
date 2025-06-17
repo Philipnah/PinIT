@@ -4,30 +4,32 @@ import { Input } from "./ui/input";
 import supabase from "@/utils/supabase";
 
 export default function InputField() {
-  const [inputField, setInputField] = useState<string>("");
+  const [pinTitle, setPinTitle] = useState<string>("");
+  const [pinContent, setPinContent] = useState<string>("");
 
   function handleOnSubmit(event: FormEvent) {
     event.preventDefault();
-    if (inputField == "") return;
+    if (pinContent == "" || pinTitle == "") return;
 
-    publishPin(inputField);
-    setInputField("");
+    publishPin(pinTitle, pinContent);
+    setPinContent("");
+    setPinTitle("");
   }
 
-  async function publishPin(text: string) {
+  async function publishPin(title: string, content: string) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
 
     const userEmail: string = user?.email ? user?.email : "Email is undefined";
 
-    console.log(userEmail + " wanted to pin: " + text);
-
     const pinToInsert = {
       author: userEmail,
-      title: "Title not implemented",
-      content: text,
+      title: title,
+      content: content,
     };
+
+    console.log(userEmail + " wanted to pin: " + JSON.stringify(pinToInsert));
 
     const { error } = await supabase.from("pins").insert(pinToInsert);
 
@@ -42,11 +44,18 @@ export default function InputField() {
       <div className="mx-auto max-w-2xl bg-white rounded-lg shadow-lg border p-4">
         <div className="flex flex-row items-center justify-center gap-4">
           <Input
+            placeholder="Give your pin a title here..."
+            type="text"
+            value={pinTitle}
+            className="w-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus:-translate-y-1 focus:shadow-lg"
+            onChange={(event) => setPinTitle(event.target.value)}
+          />
+          <Input
             placeholder="Type something to pin here..."
             type="text"
-            value={inputField}
+            value={pinContent}
             className="w-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus:-translate-y-1 focus:shadow-lg"
-            onChange={(event) => setInputField(event.target.value)}
+            onChange={(event) => setPinContent(event.target.value)}
           />
           <Button
             type="submit"
