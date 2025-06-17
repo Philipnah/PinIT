@@ -53,6 +53,7 @@ function App() {
             wonderful students of ITU! 🥳
           </h2>
           <Chat />
+          <footer>Made with ❤️ by Philip</footer> // TODO add link to my GitHub
         </>
       )}
     </div>
