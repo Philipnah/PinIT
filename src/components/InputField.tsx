@@ -9,7 +9,7 @@ export default function InputField() {
 
   function handleOnSubmit(event: FormEvent) {
     event.preventDefault();
-    if (pinContent == "" || pinTitle == "") return;
+    if (pinContent === "" || pinTitle === "") return;
 
     publishPin(pinTitle, pinContent);
     setPinContent("");
@@ -33,7 +33,9 @@ export default function InputField() {
 
     const { error } = await supabase.from("pins").insert(pinToInsert);
 
-    if (error != null) console.error(error);
+    if (error == null) {
+      alert("Pin has been pinned!✨"); // TODO: Make a nicer pop-up
+    } else console.error(error);
   }
 
   return (
@@ -59,6 +61,7 @@ export default function InputField() {
           />
           <Button
             type="submit"
+            // disabled={!pinTitle || !pinContent}
             className="transition-all duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:shadow-sm"
           >
             Pin 📌
