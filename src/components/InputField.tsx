@@ -21,7 +21,7 @@ export default function InputField() {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const userEmail: string = user?.email ? user?.email : "Email is undefined";
+    const userEmail: string = user?.email ?? "Email is undefined";
 
     const pinToInsert = {
       author: userEmail,
