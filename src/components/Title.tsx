@@ -8,6 +8,7 @@ export default function Title({ text }: { text: string }) {
   return (
     <SplitText
       text={text}
+      // margin top to avoid overlap with sign out button
       className="text-2xl font-semibold text-center mt-16"
       delay={10}
       duration={2}
