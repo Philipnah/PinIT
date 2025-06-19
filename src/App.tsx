@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import SignOutButton from "./components/SignOutButton";
+import { ThemeProvider } from "@/components/theme-provider";
+import { DarkmodeToggle } from "./components/darkmode-toggle";
 
 function App() {
   const [session, setSession] = useState<Session | null>(null);
@@ -26,37 +28,42 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-      <Analytics />
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <Analytics />
 
-      {!session ? (
-        <Auth
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          providers={[]}
-          localization={{
-            variables: {
-              sign_up: {
-                email_label: "You must sign up using your ITU email address",
+        {!session ? (
+          <Auth
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            providers={[]}
+            localization={{
+              variables: {
+                sign_up: {
+                  email_label: "You must sign up using your ITU email address",
+                },
+                sign_in: { email_label: "Your ITU email address" },
               },
-              sign_in: { email_label: "Your ITU email address" },
-            },
-          }}
-        />
-      ) : (
-        <>
-          <div className="absolute top-4 right-4">
-            <SignOutButton />
-          </div>
-          <Title text="Welcome to PinIT📌" />
-          <h2 className="text-lg px-4 text-center">
-            Pin any ITU related news to this page to share it among the
-            wonderful students of ITU! 🥳
-          </h2>
-          <Chat />
-        </>
-      )}
-    </div>
+            }}
+          />
+        ) : (
+          <>
+            <div className="absolute top-4 right-4">
+              <div className="flex flex-row gap-4">
+                <DarkmodeToggle />
+                <SignOutButton />
+              </div>
+            </div>
+            <Title text="Welcome to PinIT📌" />
+            <h2 className="text-lg px-4 text-center">
+              Pin any ITU related news to this page to share it among the
+              wonderful students of ITU! 🥳
+            </h2>
+            <Chat />
+          </>
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -43,7 +43,7 @@ export default function InputBar() {
       className="fixed bottom-0 left-0 right-0 p-4"
       onSubmit={(event) => handleOnSubmit(event)}
     >
-      <div className="mx-auto max-w-2xl bg-white rounded-lg shadow-lg border p-4">
+      <div className="mx-auto max-w-2xl bg-white dark:bg-black rounded-lg shadow-lg border p-4">
         <div className="flex flex-row items-center justify-center gap-4">
           <Input
             placeholder="Give your pin a title here..."
@@ -62,7 +62,7 @@ export default function InputBar() {
           <Button
             type="submit"
             // disabled={!pinTitle || !pinContent}
-            className="transition-all duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:shadow-sm"
+            className="bg-black dark:bg-white dark:hover:bg-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:shadow-sm"
           >
             Pin 📌
           </Button>
