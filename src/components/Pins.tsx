@@ -36,7 +36,8 @@ export default function Cards() {
   }
 
   return (
-    <div className="w-full">
+    // The mb-20 is to make space for the input bar at the bottom
+    <div className="w-full mb-20">
       {pins.map((pin) => {
         return <AnimatedPin pin={pin} key={pin.id} />;
       })}

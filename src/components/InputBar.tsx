@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import supabase from "@/utils/supabase";
 
-export default function InputField() {
+export default function InputBar() {
   const [pinTitle, setPinTitle] = useState<string>("");
   const [pinContent, setPinContent] = useState<string>("");
 
