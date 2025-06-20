@@ -43,7 +43,7 @@ export default function InputBar() {
       className="fixed bottom-0 left-0 right-0 p-4"
       onSubmit={(event) => handleOnSubmit(event)}
     >
-      <div className="mx-auto max-w-2xl bg-white dark:bg-black rounded-lg shadow-lg border p-4">
+      <div className="mx-auto max-w-2xl bg-white dark:bg-neutral-950 rounded-lg shadow-lg border p-4">
         <div className="flex flex-row items-center justify-center gap-4">
           <Input
             placeholder="Give your pin a title here..."
