@@ -11,7 +11,7 @@ async function signOut() {
 export default function SignOutButton() {
   return (
     <Button
-      className="bg-transparent text-black border hover:border-transparent hover:text-white transition-all duration-200 hover:shadow-lg"
+      className="bg-transparent hover:bg-black dark:hover:bg-white text-black dark:text-white border hover:border-transparent hover:text-white dark:hover:text-black transition-all duration-200 hover:shadow-lg"
       onClick={signOut}
     >
       Sign Out 👋
